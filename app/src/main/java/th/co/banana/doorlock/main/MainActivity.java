@@ -10,6 +10,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.test);
+        setContentView(R.layout.fragment_main);
+
+        if (savedInstanceState == null){
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.content_container_body, MainFragment.)
+//                    .commit();
+        }
     }
 }

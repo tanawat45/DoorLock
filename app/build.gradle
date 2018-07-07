@@ -18,11 +18,24 @@ android {
     }
 }
 
+def BUTTER_KNIFE_VERSION = "8.8.1" //current version of butterknife
+def VERSION = "27.1.1"
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation "com.android.support:appcompat-v7:$VERSION"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    //recycle view
+    implementation "com.android.support:recyclerview-v7:$VERSION"
+
+    //butterknife
+    implementation "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
+
+    //app bar layout
+    implementation 'com.android.support:design:27.1.1'
 }
