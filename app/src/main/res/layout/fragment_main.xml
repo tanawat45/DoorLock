@@ -1,34 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="100dp">
+        android:layout_height="wrap_content">
 
-        <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="ห้องของฉัน"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/high10dp"
+                android:textSize="20sp"
+                android:text="1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/high10dp"
+                android:textSize="20sp"
+                android:text="ห้อง"/>
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+
+        <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:text="Status"/>
+            android:layout_marginTop="400dp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="logout"/>
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:textColor="@android:color/holo_green_light"
-            android:text="Open"/>
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/iv_lock"
-        android:layout_width="300dp"
-        android:layout_height="250dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/door_lock"/>
 </LinearLayout>

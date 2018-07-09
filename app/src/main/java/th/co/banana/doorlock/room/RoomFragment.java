@@ -1,19 +1,20 @@
-package th.co.banana.doorlock.main;
+package th.co.banana.doorlock.room;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.base.BaseFragment;
+import th.co.banana.doorlock.main.MainActivity;
+import th.co.banana.doorlock.main.MainFragment;
 
-public class MainFragment extends BaseFragment {
+public class RoomFragment extends BaseFragment {
 
-    public static MainFragment newInstance() {
-        MainFragment fragment = new MainFragment();
+    public static RoomFragment newInstance() {
+        RoomFragment fragment = new RoomFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -42,4 +43,5 @@ public class MainFragment extends BaseFragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

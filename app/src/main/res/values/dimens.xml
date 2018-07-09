@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="high10dp">10dp</dimen>
+    <dimen name="high20dp">20dp</dimen>
+    <dimen name="high25dp">25dp</dimen>
+    <dimen name="high30dp">30dp</dimen>
+    <dimen name="high40dp">40dp</dimen>
+    <dimen name="high50dp">50dp</dimen>
+    <dimen name="high60dp">60dp</dimen>
+    <dimen name="high70dp">70dp</dimen>
+    <dimen name="high80dp">80dp</dimen>
+    <dimen name="high90dp">90dp</dimen>
+    <dimen name="high100dp">100dp</dimen>
+    <dimen name="high120dp">120dp</dimen>
+    <dimen name="high150dp">150dp</dimen>
+    <dimen name="high180dp">180dp</dimen>
+    <dimen name="high200dp">200dp</dimen>
+    <dimen name="high250dp">250dp</dimen>
+    <dimen name="high280dp">280dp</dimen>
+    <dimen name="high300dp">300dp</dimen>
+
+
+</resources>
