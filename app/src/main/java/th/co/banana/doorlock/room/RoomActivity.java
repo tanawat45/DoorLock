@@ -1,19 +1,20 @@
-package th.co.banana.doorlock.main;
+package th.co.banana.doorlock.room;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import th.co.banana.doorlock.R;
+import th.co.banana.doorlock.main.MainFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class RoomActivity extends AppCompatActivity {
 
     Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_room);
 
         if (savedInstanceState == null){
             getSupportFragmentManager().beginTransaction()
@@ -37,6 +38,6 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        setTitle("เลือกห้อง");
+        setTitle("Room1");
     }
 }
