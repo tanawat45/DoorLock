@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/ro_loginForm"
+        android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginTop="@dimen/high180dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp">
 
@@ -34,7 +35,8 @@
                     android:layout_marginTop="@dimen/high50dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:hint="Username" />
+                    android:hint="Username"
+                    android:inputType="text"/>
 
                 <EditText
                     android:id="@+id/etPassword"
@@ -42,18 +44,20 @@
                     android:layout_height="@dimen/high50dp"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:inputType="textPassword"/>
 
 
-                <android.support.v7.widget.AppCompatButton
+                <Button
+                    android:id="@+id/btn_login"
                     android:text="Login"
                     android:textSize="20sp"
-                    android:layout_width="@dimen/high150dp"
+                    android:textColor="#f2fde4"
+                    android:layout_width="@dimen/high100dp"
                     android:layout_height="@dimen/high50dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="@dimen/high25dp"
-                    android:backgroundTint="#CCFF90"
-                    />
+                    android:backgroundTint="#90ee02" />
 
             </LinearLayout>
 
@@ -62,14 +66,17 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:layout_below="@id/ro_loginForm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
+            android:id="@+id/tv_register"
             android:text="สมัครสมาชิก"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/high25dp" />
+            android:layout_height="@dimen/high50dp" />
     </RelativeLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

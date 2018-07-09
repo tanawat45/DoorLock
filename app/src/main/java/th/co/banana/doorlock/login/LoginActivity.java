@@ -8,6 +8,7 @@ import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.base.BaseActivity;
 
 public class LoginActivity extends BaseActivity{
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

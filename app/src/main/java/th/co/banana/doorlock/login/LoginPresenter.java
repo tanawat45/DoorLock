@@ -4,7 +4,7 @@ import th.co.banana.doorlock.base.BasePresenter;
 
 public interface LoginPresenter extends BasePresenter {
 
-    void goToMainActivity();
+    void goToMainActivity(String username, String password);
 
-    void validateUserAndPassword();
+    void validateUserAndPassword(String username, String password);
 }

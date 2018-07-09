@@ -9,6 +9,6 @@ public interface LoginView extends BaseView{
 
     void hideProgressBar();
 
-    void loginFail();
+    void loginFail(String message);
 
 }

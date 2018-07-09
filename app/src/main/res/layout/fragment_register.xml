@@ -1,63 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="@dimen/high20dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="@dimen/high30dp"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:layout_weight="0.8">
+                        android:layout_weight="0">
 
+                        <android.support.design.widget.TextInputLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="30">
 
-                        <EditText
-                            android:id="@+id/et_email"
-                            android:hint="E-mail"
-                            android:layout_weight="0.5"
+                            <EditText
+                                android:id="@+id/et_email"
+                                android:hint="E-mail"
+                                android:layout_weight="0.5"
+                                android:layout_width="@dimen/high250dp"
+                                android:layout_height="@dimen/high50dp"
+                                android:layout_marginTop="@dimen/high50dp"
+                                android:imeOptions="actionDone"
+                                android:inputType="textEmailAddress"/>
+
+                        </android.support.design.widget.TextInputLayout>
+
+                        <android.support.design.widget.TextInputLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/high50dp"
-                            android:layout_marginTop="@dimen/high50dp"/>
+                            android:layout_height="wrap_content"
+                            app:counterEnabled="true"
+                            app:counterMaxLength="32">
 
-                        <EditText
-                            android:id="@+id/et_password"
-                            android:hint="Password"
-                            android:layout_weight="0.5"
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/high50dp"
-                            />
+                            <EditText
+                                android:id="@+id/et_password"
+                                android:layout_width="@dimen/high250dp"
+                                android:layout_height="@dimen/high50dp"
+                                android:layout_weight="0.5"
+                                android:hint="Password"
+                                android:imeOptions="actionDone"
+                                android:inputType="text"/>
+
+                        </android.support.design.widget.TextInputLayout>
 
 
                     </LinearLayout>
 
 
-                    <ImageView
-                        android:layout_marginTop="@dimen/high20dp"
-                        android:layout_weight="0.5"
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/high150dp"
-                        android:layout_height="@dimen/high150dp"
-                        android:src="@drawable/add_profile_image"/>
+                    <RelativeLayout
+                        android:id="@+id/ro_pictureProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/iv_profilePicture"
+                            android:layout_marginTop="@dimen/high10dp"
+                            android:layout_weight="1"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/high150dp"
+                            android:src="@drawable/add_profile_image"/>
+
+                        <TextView
+                            android:text="เลือกรูปโปรไฟล์"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/high20dp"/>
+
+                    </RelativeLayout>
 
 
                 </LinearLayout>
@@ -70,56 +102,85 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="20">
 
-                    <EditText
-                        android:id="@+id/et_name"
-                        android:hint="ชื่อ"
-                        android:layout_weight="0.5"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/high50dp"
-                        />
+                        <EditText
+                            android:id="@+id/et_name"
+                            android:hint="ชื่อ"
+                            android:layout_weight="1"
+                            android:layout_width="@dimen/high200dp"
+                            android:layout_height="@dimen/high50dp"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPersonName"/>
+                    </android.support.design.widget.TextInputLayout>
 
-                    <EditText
-                        android:id="@+id/et_lastname"
-                        android:hint="นามสกุล"
-                        android:layout_weight="0.5"
+
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/high50dp"
-                        />
+                        android:layout_height="wrap_content"
+                        app:counterEnabled="true"
+                        app:counterMaxLength="20">
+
+                        <EditText
+                            android:id="@+id/et_lastname"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/high50dp"
+                            android:layout_weight="1"
+                            android:hint="นามสกุล"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPersonName"/>
+                    </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
 
-
-                <EditText
-                    android:id="@+id/et_phone"
-                    android:hint="เบอร์โทรศัพท์"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/high50dp"
-                    />
-
-                <EditText
-                    android:hint="ตำแหน่ง"
+                <android.support.design.widget.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    />
+                    app:counterEnabled="true"
+                    app:counterMaxLength="10">
+
+                    <EditText
+                        android:id="@+id/et_phone"
+                        android:hint="เบอร์โทรศัพท์"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/high50dp"
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"/>
+
+                </android.support.design.widget.TextInputLayout>
+
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center">
+                    android:orientation="horizontal">
 
-                    <!--<android.support.v7.widget.AppCompatButton-->
-                        <!--android:id="@+id/Btn_register"-->
-                        <!--android:text="สมัคร"-->
-                        <!--android:layout_gravity="center"-->
-                        <!--android:layout_width="@dimen/high150dp"-->
-                        <!--android:layout_height="@dimen/high50dp" />-->
+                    <TextView
+                        android:text="ตำแหน่ง : "
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.2"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8">
+
+                    </Spinner>
+
 
                 </LinearLayout>
+
 
 
             </LinearLayout>
-        </android.support.v7.widget.CardView>
-    </RelativeLayout>
 
-</LinearLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
