@@ -14,6 +14,7 @@ import butterknife.BindView;
 import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.base.BaseFragment;
 import th.co.banana.doorlock.main.MainActivity;
+import th.co.banana.doorlock.mqtt.MqttActivity;
 import th.co.banana.doorlock.register.RegisterActivity;
 
 public class LoginFragment extends BaseFragment implements LoginView {
@@ -76,7 +77,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MainActivity.class);
+                Intent intent = new Intent(getContext(), MqttActivity.class);
                 startActivity(intent);
             }
         });

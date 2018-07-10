@@ -1,23 +1,19 @@
-package th.co.banana.doorlock.room;
+package th.co.banana.doorlock.historyroom;
 
-import android.content.Intent;
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
-import butterknife.OnClick;
 import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.base.BaseFragment;
-import th.co.banana.doorlock.historyroom.HistoryRoomActivity;
-import th.co.banana.doorlock.login.LoginActivity;
-import th.co.banana.doorlock.main.MainActivity;
-import th.co.banana.doorlock.main.MainFragment;
 
-public class RoomFragment extends BaseFragment {
+public class HistoryRoomFragment extends BaseFragment {
 
-    public static RoomFragment newInstance() {
-        RoomFragment fragment = new RoomFragment();
+    public static HistoryRoomFragment newInstance() {
+        HistoryRoomFragment fragment = new HistoryRoomFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -25,7 +21,7 @@ public class RoomFragment extends BaseFragment {
 
     @Override
     protected int getFragmentLayout() {
-        return R.layout.fragment_room;
+        return R.layout.fragment_history_room;
     }
 
     @Override
@@ -41,14 +37,11 @@ public class RoomFragment extends BaseFragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home){
-            getActivity().finish();
+            getActivity().onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.btn_history)
-    void onclickHistory(){
-        Intent intent = new Intent(getActivity(), HistoryRoomActivity.class);
-        startActivity(intent);
-    }
+
+
 }

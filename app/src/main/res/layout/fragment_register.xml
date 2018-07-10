@@ -41,7 +41,8 @@
                                 android:layout_width="@dimen/high250dp"
                                 android:layout_height="@dimen/high50dp"
                                 android:layout_marginTop="@dimen/high50dp"
-                                android:imeOptions="actionDone" />
+                                android:imeOptions="actionDone"
+                                android:inputType="textEmailAddress"/>
 
                         </android.support.design.widget.TextInputLayout>
 
@@ -49,7 +50,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:counterEnabled="true"
-                            app:counterMaxLength="25">
+                            app:counterMaxLength="32">
 
                             <EditText
                                 android:id="@+id/et_password"
@@ -57,7 +58,8 @@
                                 android:layout_height="@dimen/high50dp"
                                 android:layout_weight="0.5"
                                 android:hint="Password"
-                                android:imeOptions="actionDone"/>
+                                android:imeOptions="actionDone"
+                                android:inputType="text"/>
 
                         </android.support.design.widget.TextInputLayout>
 
@@ -68,15 +70,24 @@
                     <RelativeLayout
                         android:id="@+id/ro_pictureProfile"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="match_parent">
+
                         <ImageView
                             android:id="@+id/iv_profilePicture"
-                            android:layout_marginTop="@dimen/high20dp"
+                            android:layout_marginTop="@dimen/high10dp"
                             android:layout_weight="1"
                             android:layout_gravity="center"
                             android:layout_width="wrap_content"
                             android:layout_height="@dimen/high150dp"
                             android:src="@drawable/add_profile_image"/>
+
+                        <TextView
+                            android:text="เลือกรูปโปรไฟล์"
+                            android:layout_alignParentBottom="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:paddingTop="@dimen/high20dp"/>
 
                     </RelativeLayout>
 
@@ -103,7 +114,8 @@
                             android:layout_weight="1"
                             android:layout_width="@dimen/high200dp"
                             android:layout_height="@dimen/high50dp"
-                            android:imeOptions="actionDone"/>
+                            android:imeOptions="actionDone"
+                            android:inputType="textPersonName"/>
                     </android.support.design.widget.TextInputLayout>
 
 
@@ -115,11 +127,12 @@
 
                         <EditText
                             android:id="@+id/et_lastname"
-                            android:hint="นามสกุล"
-                            android:layout_weight="1"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/high50dp"
-                            android:imeOptions="actionDone"/>
+                            android:layout_weight="1"
+                            android:hint="นามสกุล"
+                            android:imeOptions="actionDone"
+                            android:inputType="textPersonName"/>
                     </android.support.design.widget.TextInputLayout>
 
                 </LinearLayout>
@@ -128,29 +141,41 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:counterEnabled="true"
-                    app:counterMaxLength="20">
+                    app:counterMaxLength="10">
 
                     <EditText
                         android:id="@+id/et_phone"
                         android:hint="เบอร์โทรศัพท์"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/high50dp"
-                        android:imeOptions="actionDone"/>
+                        android:imeOptions="actionDone"
+                        android:inputType="phone"/>
+
                 </android.support.design.widget.TextInputLayout>
 
 
-                <android.support.design.widget.TextInputLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:counterEnabled="true"
-                    app:counterMaxLength="20">
-                    <EditText
-                        android:id="@+id/et_position"
-                        android:hint="ตำแหน่ง"
-                        android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:text="ตำแหน่ง : "
+                        android:gravity="center"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:imeOptions="actionDone"/>
-                </android.support.design.widget.TextInputLayout>
+                        android:layout_weight="0.2"/>
+
+                    <Spinner
+                        android:id="@+id/spinner_position"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.8">
+
+                    </Spinner>
+
+
+                </LinearLayout>
 
 
 

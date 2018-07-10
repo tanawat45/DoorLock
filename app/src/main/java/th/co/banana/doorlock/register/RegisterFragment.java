@@ -12,9 +12,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -41,8 +43,8 @@ public class RegisterFragment extends BaseFragment {
     @BindView(R.id.et_phone)
     EditText et_phone;
 
-    @BindView(R.id.et_position)
-    EditText et_position;
+    @BindView(R.id.spinner_position)
+    Spinner spinner_position;
 
     @BindView(R.id.iv_profilePicture)
     ImageView iv_profilePicture;
@@ -76,6 +78,8 @@ public class RegisterFragment extends BaseFragment {
         setHasOptionsMenu(true);
         initInstance();
 
+
+
     }
 
     private void initInstance() {
@@ -92,11 +96,11 @@ public class RegisterFragment extends BaseFragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId() == android.R.id.home){
             getActivity().finish();
-//            Toast.makeText(getContext(),"home",Toast.LENGTH_SHORT).show();
         }
 
         else if (item.getItemId() == R.id.tb_menu_done){
             checkEditText();
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -145,7 +149,11 @@ public class RegisterFragment extends BaseFragment {
         et_name.setImeOptions(EditorInfo.IME_ACTION_DONE);
         et_lastName.setImeOptions(EditorInfo.IME_ACTION_DONE);
         et_phone.setImeOptions(EditorInfo.IME_ACTION_DONE);
-        et_position.setImeOptions(EditorInfo.IME_ACTION_DONE);
+
+        String[] position = getResources().getStringArray(R.array.position_choices);
+        ArrayAdapter<String> adapterPosition = new ArrayAdapter<String>(getContext(),android.R.layout.simple_dropdown_item_1line, position);
+        spinner_position.setAdapter(adapterPosition);
+
 
     }
 

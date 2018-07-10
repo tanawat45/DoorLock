@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">DoorLock</string>
+    <string-array name="position_choices">
+        <item>Student</item>
+        <item>Teacher</item>
+        <item>TA</item>
+    </string-array>
 </resources>
