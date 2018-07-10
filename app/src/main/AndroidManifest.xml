@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="th.co.banana.doorlock">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,6 +24,15 @@
         <activity android:name=".main.MainActivity"/>
 
         <activity android:name=".register.RegisterActivity"/>
+
+        <activity android:name=".room.RoomActivity"/>
+
+        <activity android:name=".historyroom.HistoryRoomActivity"/>
+
+        <activity android:name=".mqtt.MqttActivity"/>
+
+        <!--MQTT Service-->
+        <service android:name="org.eclipse.paho.android.service.MqttService" />
     </application>
 
 </manifest>

@@ -6,14 +6,31 @@
     android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_marginTop="@dimen/high30dp"
+            android:layout_marginBottom="@dimen/high30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:src="@drawable/logo" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
         android:id="@+id/ro_loginForm"
         android:layout_centerInParent="true"
         android:layout_width="match_parent"
         android:layout_height="300dp"
         android:layout_gravity="center"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
-
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/logo">
 
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
@@ -74,6 +91,27 @@
             android:gravity="center"
             android:layout_width="match_parent"
             android:layout_height="@dimen/high25dp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/logobanana"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/high10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/tv_powered_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Powered By"/>
+
+        <ImageView
+            android:layout_alignRight="@id/tv_powered_by"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/image_logo_banana"/>
     </RelativeLayout>
 
 </RelativeLayout>
