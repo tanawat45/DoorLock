@@ -39,9 +39,9 @@ public class MqttActivity extends AppCompatActivity {
 
     final String serverUri = "tcp://m10.cloudmqtt.com:18771";
     final String clientId = "Android";
-    String subscriptionTopic = "test";
-    String publishTopic = "test";
-    String publishMessage = "test test test";
+    String subscriptionTopic = "";
+    String publishTopic = "";
+    String publishMessage = "";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;

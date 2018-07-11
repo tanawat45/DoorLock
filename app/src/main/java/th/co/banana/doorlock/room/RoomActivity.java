@@ -1,5 +1,6 @@
 package th.co.banana.doorlock.room;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -40,9 +41,12 @@ public class RoomActivity extends AppCompatActivity {
     }
 
     private void setToolBar() {
+        Bundle bundle = getIntent().getExtras();
+        String name = bundle.getString("name");
+
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-        setTitle("Room1");
+        setTitle(name);
     }
 }

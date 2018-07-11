@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
@@ -21,6 +22,9 @@ public class MainFragment extends BaseFragment implements MainAdapter.MainAdapte
 
     @BindView(R.id.rv_room)
     RecyclerView rvRoom;
+
+    @BindView(R.id.room_all)
+    TextView tvRoomall;
 
     public static MainFragment newInstance() {
         MainFragment fragment = new MainFragment();
@@ -38,6 +42,8 @@ public class MainFragment extends BaseFragment implements MainAdapter.MainAdapte
     protected void onViewBind() {
         adapter = new MainAdapter(this);
         rvRoom.setAdapter(adapter);
+
+//        tvRoomall.setText(adapter.getItemCount() +1);
     }
 
     @Override
@@ -51,15 +57,14 @@ public class MainFragment extends BaseFragment implements MainAdapter.MainAdapte
     }
 
     @Override
-    public void clickRoom() {
-
-    }
-
-    @OnClick(R.id.test)
-    void onclick(){
+    public void clickRoom(String name, int position) {
         Intent intent = new Intent(getActivity(), RoomActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("name", name + position);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
+
 
     @OnClick(R.id.btn_logout)
     void onclickLogOut(){

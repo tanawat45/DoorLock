@@ -68,7 +68,7 @@
                     android:id="@+id/btn_login"
                     android:text="Login"
                     android:textSize="20sp"
-                    android:textColor="#f2fde4"
+                    android:textColor="@android:color/black"
                     android:layout_width="@dimen/high100dp"
                     android:layout_height="@dimen/high50dp"
                     android:layout_gravity="center"
@@ -96,7 +96,9 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <Button
             android:id="@+id/btn_mqtt"
