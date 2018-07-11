@@ -1,12 +1,17 @@
 package th.co.banana.doorlock.login;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,6 +23,9 @@ import th.co.banana.doorlock.mqtt.MqttActivity;
 import th.co.banana.doorlock.register.RegisterActivity;
 
 public class LoginFragment extends BaseFragment implements LoginView {
+
+    @BindView(R.id.ro_login_area)
+    RelativeLayout ro_login_area;
 
     @BindView(R.id.btn_login)
     Button btn_login;
@@ -31,6 +39,8 @@ public class LoginFragment extends BaseFragment implements LoginView {
     @BindView(R.id.tv_register)
     TextView tv_register;
 
+    @BindView(R.id.btn_mqtt)
+    Button btn_mqtt;
 
 
     LoginPresenter presenter;
@@ -69,6 +79,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
         return R.layout.fragment_login;
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onViewBind() {
 
@@ -77,7 +88,7 @@ public class LoginFragment extends BaseFragment implements LoginView {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), MqttActivity.class);
+                Intent intent = new Intent(getContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -90,7 +101,30 @@ public class LoginFragment extends BaseFragment implements LoginView {
             }
         });
 
+        ro_login_area.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard(v);
+                return false;
+            }
+        });
+
+        btn_mqtt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), MqttActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+    protected void hideKeyboard(View view)
+    {
+        InputMethodManager in = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+
 
 
     @Override

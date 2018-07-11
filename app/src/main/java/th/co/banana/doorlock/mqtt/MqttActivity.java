@@ -1,13 +1,20 @@
 package th.co.banana.doorlock.mqtt;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import org.eclipse.paho.android.service.MqttAndroidClient;
 import org.eclipse.paho.client.mqttv3.IMqttActionListener;
@@ -32,18 +39,27 @@ public class MqttActivity extends AppCompatActivity {
 
     final String serverUri = "tcp://m10.cloudmqtt.com:18771";
     final String clientId = "Android";
-    final String subscriptionTopic = "Test Topic";
-    final String publishTopic = "Send Dai laewwwww";
-    final String publishMessage = "Hello World! My name Aof";
+    String subscriptionTopic = "test";
+    String publishTopic = "test";
+    String publishMessage = "test test test";
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.et_subscribe)
-    EditText et_subscribe;
+    @BindView(R.id.ro_area)
+    RelativeLayout ro_area;
 
-    @BindView(R.id.et_publish)
-    EditText et_publish;
+    @BindView(R.id.et_subscribeTo)
+    EditText et_subscribeTo;
+
+    @BindView(R.id.et_publishTo)
+    EditText et_publishTo;
+
+    @BindView(R.id.et_messageToSend)
+    EditText et_messageToSend;
+
+    @BindView(R.id.tv_messageArrived)
+    TextView tv_messageArrived;
 
     @BindView(R.id.btn_subscribe)
     Button btn_subscribe;
@@ -64,29 +80,75 @@ public class MqttActivity extends AppCompatActivity {
 
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initInstance() {
         setToolBar();
         setupMqttClient();
         btn_subscribe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                subscribeToTopic();
+                validateEditTextSubscribe();
 
+                subscriptionTopic = et_subscribeTo.getText().toString();
+                subscribeToTopic();
             }
         });
 
         btn_publish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                validateEditTextPublish();
 
+                publishTopic = et_publishTo.getText().toString();
+                publishMessage = et_messageToSend.getText().toString();
                 publishMessage();
             }
         });
+
+        ro_area.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard(v);
+                return false;
+            }
+        });
+
+
+
+    }
+
+    private void validateEditTextPublish() {
+
+        if(et_publishTo.length() == 0){
+            Toast("ใส่ Topic ก่อนนนน");
+        }
+
+        else  if(et_messageToSend.length() == 0){
+            Toast("ใส่ message ก่อนนนน");
+        }
+    }
+
+    private void validateEditTextSubscribe() {
+        if(et_subscribeTo.length() == 0){
+            Toast("ใส่ subscribe topic ก่อนนนนน");
+        }
+
+    }
+
+    private void Toast(String text) {
+        Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
+                .show();
+    }
+
+    protected void hideKeyboard(View view)
+    {
+        InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
     private String getDate() {
-//        DateFormat df = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
-//        String date = df.format(Calendar.getInstance().getTime());
+        //        DateFormat df = new SimpleDateFormat("yyyy.MM.dd G 'at' HH:mm:ss z");
+        //        String date = df.format(Calendar.getInstance().getTime());
 
         String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime());
 
@@ -95,8 +157,8 @@ public class MqttActivity extends AppCompatActivity {
 
     private void setToolBar() {
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setHomeButtonEnabled(true);
+        //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //        getSupportActionBar().setHomeButtonEnabled(true);
         setTitle("Main Room");
     }
 
@@ -125,7 +187,7 @@ public class MqttActivity extends AppCompatActivity {
 
                 Log.v("AOF", "Message from MQTT has arrive.");
 
-                et_subscribe.setText(topic + " => " + new String(message.getPayload()) + "\n");
+                tv_messageArrived.setText(topic + " => " + new String(message.getPayload()) + "\n");
 
                 addToHistory("Incoming message: " + new String(message.getPayload()));
 
@@ -198,8 +260,6 @@ public class MqttActivity extends AppCompatActivity {
             message.setPayload(encodePayload);
             mqttAndroidClient.publish(publishTopic, message);
 
-            et_publish.setText(message.toString());
-
             addToHistory("Message Published");
             if (!mqttAndroidClient.isConnected()) {
                 //  addToHistory(mqttAndroidClient.getBufferedMessageCount() + " messages in buffer.");
@@ -211,4 +271,5 @@ public class MqttActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
 }

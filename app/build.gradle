@@ -10,7 +10,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "th.co.banana.doorlock"
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -55,5 +55,8 @@ dependencies {
     //mqtt
     implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0'
     implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+
+    //calendar
+    implementation 'com.github.shrikanth7698:Collapsible-Calendar-View-Android:v1.0.0'
 
 }

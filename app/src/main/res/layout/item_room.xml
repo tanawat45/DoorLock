@@ -9,6 +9,8 @@
         android:id="@+id/cv_room"
         android:layout_width="match_parent"
         android:layout_height="100dp"
+        android:layout_marginLeft="@dimen/high20dp"
+        android:layout_marginRight="@dimen/high20dp"
         android:foreground="?android:attr/selectableItemBackground"
         card_view:cardCornerRadius="3dp"
         card_view:cardElevation="4dp"
