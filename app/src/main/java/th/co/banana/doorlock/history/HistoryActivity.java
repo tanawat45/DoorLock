@@ -3,6 +3,7 @@ package th.co.banana.doorlock.history;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,12 +19,15 @@ import java.util.GregorianCalendar;
 
 import th.co.banana.doorlock.R;
 
-public class HistoryActivity extends AppCompatActivity {
+public class HistoryActivity extends AppCompatActivity implements HistoryAdapter.MainAdapterListenner{
 
     Toolbar toolbar;
     TextView tvDate;
     Day day;
     CollapsibleCalendar collapsibleCalendar;
+    RecyclerView recyclerView;
+
+    public HistoryAdapter adapter;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -41,6 +45,7 @@ public class HistoryActivity extends AppCompatActivity {
         tvDate.setText(day.getDay() + "/" + (day.getMonth() + 1) + "/" + day.getYear());
         calendarCollapsible();
         initInstance();
+        setRecycle();
     }
 
     private void calendarCollapsible() {
@@ -89,5 +94,17 @@ public class HistoryActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
         setTitle("History");
+
+    }
+
+    public void setRecycle(){
+        recyclerView = findViewById(R.id.rv_name);
+        adapter = new HistoryAdapter(this);
+        recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void clickRoom() {
+
     }
 }

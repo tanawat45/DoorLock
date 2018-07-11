@@ -12,11 +12,9 @@ import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.login.LoginActivity;
 import th.co.banana.doorlock.room.RoomActivity;
 
-public class MainActivity extends AppCompatActivity{
+public class MainActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    MainAdapter adapter;
-    RecyclerView rvRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,11 +44,8 @@ public class MainActivity extends AppCompatActivity{
         setToolBar();
     }
 
+
     private void setToolBar() {
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setHomeButtonEnabled(true);
-        setTitle("เลือกห้อง");
     }
-
 }
