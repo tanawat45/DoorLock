@@ -1,15 +1,22 @@
 package th.co.banana.doorlock.main;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import butterknife.OnClick;
 import th.co.banana.doorlock.R;
+import th.co.banana.doorlock.login.LoginActivity;
+import th.co.banana.doorlock.room.RoomActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     Toolbar toolbar;
+    MainAdapter adapter;
+    RecyclerView rvRoom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
     private void initInstance() {
         toolbar = findViewById(R.id.toolbar);
         setToolBar();
@@ -44,4 +52,5 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setHomeButtonEnabled(true);
         setTitle("เลือกห้อง");
     }
+
 }

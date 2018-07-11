@@ -5,6 +5,10 @@
     <color name="colorAccent">#09af00</color>
     <color name="colorButtonGreen">#8BC34A</color>
 
+
+    <color name="colorCalendar">#42af33</color>
+
+
     <color name="color_green">#89c14a</color>
     <color name="color_soft_green_back_ground">#EEF7E4</color>
 </resources>

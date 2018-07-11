@@ -34,7 +34,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        holder.roomName.setText("test");
     }
 
     @Override
@@ -55,7 +55,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             linearBackground = itemView.findViewById(R.id.linear_background);
             roomName = itemView.findViewById(R.id.tv_room_name);
 
-
+            cvRoom.setOnClickListener(this);
         }
 
         @Override

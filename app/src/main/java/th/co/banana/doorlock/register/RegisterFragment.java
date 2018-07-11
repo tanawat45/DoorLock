@@ -1,22 +1,28 @@
 package th.co.banana.doorlock.register;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.NestedScrollView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -27,6 +33,9 @@ import th.co.banana.doorlock.R;
 import th.co.banana.doorlock.base.BaseFragment;
 
 public class RegisterFragment extends BaseFragment {
+
+    @BindView(R.id.layout_area)
+    NestedScrollView layout_area;
 
     @BindView(R.id.et_email)
     EditText et_email;
@@ -48,6 +57,9 @@ public class RegisterFragment extends BaseFragment {
 
     @BindView(R.id.iv_profilePicture)
     ImageView iv_profilePicture;
+
+    @BindView(R.id.tv_choosePicture)
+    TextView tv_choosePicture;
 
     @BindView(R.id.ro_pictureProfile)
     RelativeLayout ro_profilePicture;
@@ -136,14 +148,6 @@ public class RegisterFragment extends BaseFragment {
     @Override
     protected void onViewBind() {
 
-//        et_email.setMaxLines(1);
-//        et_password.setMaxLines(1);
-//        et_name.setMaxLines(1);
-//        et_lastName.setMaxLines(1);
-//        et_phone.setMaxLines(1);
-//        et_position.setMaxLines(1);
-
-
         et_email.setImeOptions(EditorInfo.IME_ACTION_DONE);
         et_password.setImeOptions(EditorInfo.IME_ACTION_DONE);
         et_name.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -155,7 +159,24 @@ public class RegisterFragment extends BaseFragment {
         spinner_position.setAdapter(adapterPosition);
 
 
+
+        layout_area.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                hideKeyboard(v);
+                return false;
+            }
+        });
+
+
     }
+
+    protected void hideKeyboard(View view)
+    {
+        InputMethodManager in = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(view.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
 
     @OnClick(R.id.ro_pictureProfile)
     void onClickPhoto(){
@@ -176,7 +197,7 @@ public class RegisterFragment extends BaseFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 1){
-            if(requestCode == Activity.RESULT_OK){
+            if(resultCode == Activity.RESULT_OK){
                 uri = data.getData();
 
                 try {
@@ -188,10 +209,10 @@ public class RegisterFragment extends BaseFragment {
                     e.printStackTrace();
                 }
 
+
             }
 
         }
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void Toast(String text){
@@ -199,6 +220,4 @@ public class RegisterFragment extends BaseFragment {
                 .show();
 
     }
-
-
 }
