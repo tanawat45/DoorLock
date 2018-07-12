@@ -43,7 +43,7 @@ public class MainFragment extends BaseFragment implements MainAdapter.MainAdapte
         adapter = new MainAdapter(this);
         rvRoom.setAdapter(adapter);
 
-//        tvRoomall.setText(adapter.getItemCount() +1);
+        tvRoomall.setText(adapter.getItemCount() + "");
     }
 
     @Override

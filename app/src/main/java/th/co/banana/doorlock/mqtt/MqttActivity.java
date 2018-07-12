@@ -204,7 +204,7 @@ public class MqttActivity extends AppCompatActivity {
 
         mqttConnectOptions.setAutomaticReconnect(true);
         mqttConnectOptions.setUserName("nhuivzzk");
-        mqttConnectOptions.setPassword("a2Lw91WSoAhD".toCharArray());
+        mqttConnectOptions.setPassword("p346wIR6o_t1".toCharArray());
         mqttConnectOptions.setCleanSession(false);
 
 
