@@ -46,7 +46,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return 3;
+        return 10;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
